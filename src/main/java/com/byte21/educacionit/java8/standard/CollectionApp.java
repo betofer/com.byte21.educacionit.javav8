@@ -71,18 +71,56 @@ public class CollectionApp {
      */
     public static void main (String[] args) {
  
-        // Test ArrayList.
+        // Test collections without generics.
+        // testWithoutGeneric ();
+        
+        //testWithGeneric ();
+        
         testArrayList ();
     }
     
+    public static void testWithoutGeneric () {
+        
+        ArrayList objects = new ArrayList ();
+        
+        try {
+         
+            objects.add ("String");
+            objects.add (Integer.valueOf (1));
+            
+            System.out.println ((String) objects.get (0));
+            System.out.println ((String) objects.get (1));
+        
+        } catch (Exception e) {
+           
+            System.err.println ("Uyyy ocurrio una falla... " + e.getMessage ());
+        }
+    }
     
-    /**
-      * Este metodo se encarga de ejecutar las pruebas de ArrayList.
-      */
+    
+    public static void testWithGeneric () {
+        
+        ArrayList<String> strings = new ArrayList<> ();
+        
+        try {
+         
+            strings.add ("String");
+            strings.add (Integer.valueOf (1).toString ());
+            
+            System.out.println (strings.get (0));
+            System.out.println (strings.get (1));
+        
+        } catch (Exception e) {
+           
+            System.err.println ("Uyyy ocurrio una falla... " + e.getMessage ());
+        }
+    }
+    
+    
     public static void testArrayList () {
         
         // Creo el ArrayList.
-        ArrayList<String> names = new ArrayList<> ();
+        List<String> names = new ArrayList<> ();
         
         // Agrego valores al ArrayList.
         names.add ("Nelson Muntz");
